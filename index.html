@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>While True</title>
+    <script>
+
+const dados = [];
+const chaveParada = "parar";
+
+while (true) {
+    const entrada = prompt("Digite um nome ou 'parar':");
+
+    // Verifica a condição de SAÍDA do loop.
+    if (entrada === null || entrada.toLowerCase() === chaveParada) {
+        console.log("Palavra de parada detectada. Fim da coleta.");
+        break; // É isso que sai do while(true)!
+    }
+    
+    // Adiciona o dado válido (após remover espaços extras) ao array.
+    const dadoLimpo = entrada.trim();
+    if (dadoLimpo.length > 0) {
+        dados.push(dadoLimpo);
+    }
+}
+
+// Verifica se a lista não está vazia antes de continuar
+if (dados.length === 0) {
+    console.log("\nNenhum dado para processar. Fim do programa.");
+} else {
+
+    // O 'for' tradicional, perfeito para quando precisamos saber a POSIÇÃO (i).
+    for (let i = 0; i < dados.length; i++) {
+        // Exibe: (Posição + 1): Valor
+        console.log(`${i + 1}: ${dados[i]}`);
+    }
+
+    for (const item of dados) {
+        // Exibe o valor do item com uma mensagem customizada.
+        console.log(`Bem-vindo(a), ${item}!`);
+    }
+}
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
